@@ -4,7 +4,6 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -17,26 +16,25 @@ public class GeoIPLocationGroup {
     @Id
     private UUID id;
     @Enumerated(EnumType.STRING)
-    private GeoIPLocationGroupType groupType;
+    private GeoIpLocationGroupType geoIpLocationGroupType;
     private String groupLevel1Name;
     private String groupLevel2Name;
     private String groupLevel3Name;
     private String groupLevel4Name;
-    @Type(type="text")
     private String groupExpression;
     private boolean enabled;
     private Date lastViewedBeforeChange=new Date();
     @Transient
     private Date loadedAt=new Date();
-    @ManyToMany(fetch=FetchType.LAZY)
+    @ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(name = "geo_ip_location_group_geo_ip_locations", joinColumns = { @JoinColumn(name = "geo_ip_location_group_id")}, inverseJoinColumns={@JoinColumn(name="geo_ip_location_id")})
-    private Set<GeoIPLocation> geoIPLocations=new HashSet<GeoIPLocation>();
+    private Set<GeoIpLocation> geoIpLocations;
 
-    public GeoIPLocationGroupType getGroupType() {
-        return groupType;
+    public GeoIpLocationGroupType getGeoIpLocationGroupType() {
+        return geoIpLocationGroupType;
     }
-    public void setGroupType(GeoIPLocationGroupType groupType) {
-        this.groupType = groupType;
+    public void setGeoIpLocationGroupType(GeoIpLocationGroupType geoIpLocationGroupType) {
+        this.geoIpLocationGroupType = geoIpLocationGroupType;
     }
     public String getGroupLevel1Name() {
         return groupLevel1Name;
@@ -86,11 +84,11 @@ public class GeoIPLocationGroup {
     public void setLoadedAt(Date loadedAt) {
         this.loadedAt = loadedAt;
     }
-    public Set<GeoIPLocation> getGeoIPLocations() {
-        return geoIPLocations;
+    public Set<GeoIpLocation> getGeoIpLocations() {
+        return geoIpLocations;
     }
-    public void setGeoIPLocations(Set<GeoIPLocation> geoIPLocations) {
-        this.geoIPLocations = geoIPLocations;
+    public void setGeoIpLocations(Set<GeoIpLocation> geoIpLocations) {
+        this.geoIpLocations = geoIpLocations;
     }
 
     public boolean isParent(){
@@ -131,7 +129,7 @@ public class GeoIPLocationGroup {
         level = level == 0 && getGroupLevel4Name().equalsIgnoreCase(GeoIPLocationGroup.PARENT_VALUE)?3:level;
         return level;
     }
-    public enum GeoIPLocationGroupType{
+    public enum GeoIpLocationGroupType {
         Network
     }
 

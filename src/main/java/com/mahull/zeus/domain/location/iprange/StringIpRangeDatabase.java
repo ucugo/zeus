@@ -1,6 +1,6 @@
 package com.mahull.zeus.domain.location.iprange;
 
-import com.mahull.zeus.domain.location.GeoIPLocation;
+import com.mahull.zeus.domain.location.GeoIpLocation;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -15,7 +15,7 @@ public class StringIpRangeDatabase extends AbstractDatabase {
 
     private static final Logger logger = LoggerFactory.getLogger(StringIpRangeDatabase.class);
 
-    public StringIpRangeDatabase(String ipRanges, GeoIPLocation value) throws Exception{
+    public StringIpRangeDatabase(String ipRanges, GeoIpLocation value) throws Exception{
         StringBuilder entries = new StringBuilder();
         String seperator = "";
         for(String entry : convertToDatabaseEntryList(ipRanges, value)){
@@ -30,7 +30,7 @@ public class StringIpRangeDatabase extends AbstractDatabase {
         logger.info("Updated database from String");
     }
 
-    private List<String> convertToDatabaseEntryList(String raw, GeoIPLocation value){
+    private List<String> convertToDatabaseEntryList(String raw, GeoIpLocation value){
         List<String> out = new ArrayList<String>();
         if(StringUtils.isBlank(raw)){
             return out;
@@ -49,7 +49,7 @@ public class StringIpRangeDatabase extends AbstractDatabase {
         }
         return out;
     }
-    private String convertStringEntryToDatabaseEntry(String entry, GeoIPLocation value){
+    private String convertStringEntryToDatabaseEntry(String entry, GeoIpLocation value){
         JSONObject out = new JSONObject();
         if(StringUtils.contains(entry, "/")){
             out.put("ipAddressRange", StringUtils.trim(entry));
@@ -67,7 +67,7 @@ public class StringIpRangeDatabase extends AbstractDatabase {
         }
         return out.toString();
     }
-    private String convertStringEntryToDatabaseEntry(String startEntry, String endEntry, GeoIPLocation value){
+    private String convertStringEntryToDatabaseEntry(String startEntry, String endEntry, GeoIpLocation value){
         JSONObject out = new JSONObject();
         out.put("startIpAddress", StringUtils.trim(startEntry));
         out.put("endIpAddress", StringUtils.trim(endEntry));

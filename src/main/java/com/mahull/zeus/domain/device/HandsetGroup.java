@@ -22,7 +22,6 @@ public class HandsetGroup {
     private String groupLevel2Name;
     private String groupLevel3Name;
     private String groupLevel4Name;
-    @Type(type="text")
     private String groupExpression;
     private boolean enabled;
     private Date lastViewedBeforeChange=new Date();
@@ -32,10 +31,10 @@ public class HandsetGroup {
     @JoinTable(name = "handset_group_handsets", joinColumns = {@JoinColumn(name = "handset_group_id")}, inverseJoinColumns={@JoinColumn(name="handset_id")})
     private Set<Handset> handsets=new HashSet<Handset>();
 
-    public HandsetGroupType getGroupType() {
+    public HandsetGroupType getGeoIpLocationGroupType() {
         return groupType;
     }
-    public void setGroupType(HandsetGroupType groupType) {
+    public void setGeoIpLocationGroupType(HandsetGroupType groupType) {
         this.groupType = groupType;
     }
     public String getGroupLevel1Name() {

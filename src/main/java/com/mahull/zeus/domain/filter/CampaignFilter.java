@@ -4,7 +4,7 @@ import com.mahull.zeus.domain.demographic.DemographicAge;
 import com.mahull.zeus.domain.demographic.DemographicGender;
 import com.mahull.zeus.domain.demographic.DemographicLanguage;
 import com.mahull.zeus.domain.demographic.DemographicRace;
-import com.mahull.zeus.domain.location.GeoIPLocation;
+import com.mahull.zeus.domain.location.GeoIpLocation;
 import com.mahull.zeus.domain.location.GeoIPLocationGroup;
 import com.mahull.zeus.domain.device.Handset;
 import com.mahull.zeus.domain.device.HandsetGroup;
@@ -47,7 +47,6 @@ public class CampaignFilter {
             inverseJoinColumns={@JoinColumn(name="geo_ip_location_group_id")
             })
     private Set<GeoIPLocationGroup> geoIPLocationGroups=new HashSet<>();
-    @Type(type="text")
     private String ipTargetingRanges;
     @ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(
@@ -172,16 +171,16 @@ public class CampaignFilter {
 //======================================================================================
 
 
-    public Set<GeoIPLocation> getAllEnabledGeoIPLocationsExcludeParentsIfMoreSpecificIsAvailable(boolean quite){
-        Set<GeoIPLocation> out = new HashSet<GeoIPLocation>();
+    public Set<GeoIpLocation> getAllEnabledGeoIPLocationsExcludeParentsIfMoreSpecificIsAvailable(boolean quite){
+        Set<GeoIpLocation> out = new HashSet<GeoIpLocation>();
         out.addAll(getGeoIPLocationChildren(1,quite));
         out.addAll(getGeoIPLocationChildren(2,quite));
         out.addAll(getGeoIPLocationChildren(3,quite));
         out.addAll(getGeoIPLocationChildren(4,quite));
         return out;
     }
-    private Set<GeoIPLocation> getGeoIPLocationChildren(int level,boolean quite){
-        Set<GeoIPLocation> out = new HashSet<GeoIPLocation>();
+    private Set<GeoIpLocation> getGeoIPLocationChildren(int level,boolean quite){
+        Set<GeoIpLocation> out = new HashSet<GeoIpLocation>();
         for(GeoIPLocationGroup parent : getGeoIPLocationGroups()){
             if(level == 4){
                 if(!parent.isParent() && isParentInGroupList(parent)){
@@ -194,10 +193,10 @@ public class CampaignFilter {
                                 parent.getGroupLevel2Name(),
                                 parent.getGroupLevel3Name(),
                                 parent.getGroupLevel4Name(),
-                                parent.getGeoIPLocations().size()
+                                parent.getGeoIpLocations().size()
                         });
                     }
-                    out.addAll(parent.getGeoIPLocations());
+                    out.addAll(parent.getGeoIpLocations());
                 }
             }else{
                 if(parent.isParent() && parent.getParentLevel() == level){
@@ -218,10 +217,10 @@ public class CampaignFilter {
                                     parent.getGroupLevel2Name(),
                                     parent.getGroupLevel3Name(),
                                     parent.getGroupLevel4Name(),
-                                    parent.getGeoIPLocations().size()
+                                    parent.getGeoIpLocations().size()
                             });
                         }
-                        out.addAll(parent.getGeoIPLocations());
+                        out.addAll(parent.getGeoIpLocations());
                     }
                 }
             }

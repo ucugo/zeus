@@ -1,6 +1,6 @@
 package com.mahull.zeus.domain.location.iprange;
 
-import com.mahull.zeus.domain.location.GeoIPLocation;
+import com.mahull.zeus.domain.location.GeoIpLocation;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.net.util.SubnetUtils;
 import org.json.JSONObject;
@@ -29,7 +29,7 @@ public abstract class AbstractDatabase {
         int failCount=0;
         long startTime=System.nanoTime();
         HashMap<Key, Value> out = new HashMap<Key, Value>();
-        HashMap<GeoIPLocation, GeoIPLocation> tmpCache=new HashMap<GeoIPLocation, GeoIPLocation>();
+        HashMap<GeoIpLocation, GeoIpLocation> tmpCache=new HashMap<GeoIpLocation, GeoIpLocation>();
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         String line = null;
         while((line = reader.readLine())!= null){
@@ -46,7 +46,7 @@ public abstract class AbstractDatabase {
                 if(StringUtils.isNotBlank(ipAddressRange) && (StringUtils.isNotBlank(startIpAddress)||StringUtils.isNotBlank(endIpAddress))){
                     throw new IllegalArgumentException("Invalid IP address range.  Both subnet and start/end ip set");
                 }
-                GeoIPLocation gL = new GeoIPLocation();
+                GeoIpLocation gL = new GeoIpLocation();
                 gL.setCountryCode(jsonLine.optString("cc",null));
                 gL.setCountryName(jsonLine.optString("country",null));
                 gL.setRegion(jsonLine.optString("region",null));
@@ -56,7 +56,7 @@ public abstract class AbstractDatabase {
                 if(StringUtils.isNotBlank(tz)){
                     gL.setTimeZone(TimeZone.getTimeZone(tz));
                 }
-                GeoIPLocation gL2 = tmpCache.get(gL);
+                GeoIpLocation gL2 = tmpCache.get(gL);
                 if(gL2 == null){
                     tmpCache.put(gL, gL);
                     gL2=gL;

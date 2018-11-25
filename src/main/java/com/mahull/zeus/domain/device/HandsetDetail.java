@@ -15,7 +15,6 @@ public class HandsetDetail {
     @Id
     private UUID id;
     private String sourceId;
-    @Type(type="text")
     private String userAgent;
     private String brandName;
     private String modelName;

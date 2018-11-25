@@ -14,7 +14,7 @@ public class TrackingTargetStatistics {
     private UUID id;
     @ManyToOne(optional = false)
     private TrackingTarget trackingTarget;
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "date_utc")
     private Date dateUTC;
     @Column(name = "hour_utc", columnDefinition = "TINYINT NOT NULL")

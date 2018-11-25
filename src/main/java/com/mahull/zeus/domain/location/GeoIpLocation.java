@@ -7,7 +7,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name="geo_ip_location")
-public class GeoIPLocation {
+public class GeoIpLocation {
 
     public static final String ALL_CITIES = "**ALL**";
 
