@@ -9,12 +9,11 @@ import javax.persistence.Table;
 import java.util.UUID;
 
 @Entity
-@Table(name="handset_details")
+@Table(name="handset_detail")
 public class HandsetDetail {
 
     @Id
-    @GeneratedValue
-    private UUID uuid;
+    private UUID id;
     private String sourceId;
     @Type(type="text")
     private String userAgent;
@@ -122,11 +121,11 @@ public class HandsetDetail {
         this.wifi = wifi;
     }
 
-    public UUID getUuid() {
-        return uuid;
+    public UUID getId() {
+        return id;
     }
 
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
+    public void setId(UUID id) {
+        this.id = id;
     }
 }

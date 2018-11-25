@@ -6,13 +6,12 @@ import java.util.TimeZone;
 import java.util.UUID;
 
 @Entity
-@Table(name="geo_ip_locations")
+@Table(name="geo_ip_location")
 public class GeoIPLocation {
 
     public static final String ALL_CITIES = "**ALL**";
 
     @Id
-    @GeneratedValue
     private UUID id;
     private String countryCode;
     private String countryName;

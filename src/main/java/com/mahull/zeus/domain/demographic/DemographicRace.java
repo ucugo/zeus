@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name = "demographic_race")
 public class DemographicRace extends AbstractDemographic {
 
     @Override

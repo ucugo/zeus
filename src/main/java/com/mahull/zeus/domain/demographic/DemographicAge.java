@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name = "demographic_age")
 public class DemographicAge extends AbstractDemographic<Integer> {
 
     @Override

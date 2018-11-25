@@ -12,11 +12,10 @@ public class DatabaseIPRangeLocationDatasource {
     private Boolean enabled = true;
     private final GeoIpLocationRepository geoIpLocationRepository;
 
-    @Value("geoip.database.file")
     private final String dataBaseFile;
 
     @Autowired
-    public DatabaseIPRangeLocationDatasource(GeoIpLocationRepository geoIpLocationRepository, String dataBaseFile) {
+    public DatabaseIPRangeLocationDatasource(GeoIpLocationRepository geoIpLocationRepository, @Value("${geoip.database.file}") String dataBaseFile) {
         this.dataBaseFile = dataBaseFile;
         this.geoIpLocationRepository = geoIpLocationRepository;
     }

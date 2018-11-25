@@ -17,8 +17,7 @@ public abstract class AbstractDemographic<ListValueType> {
     private String value;
 
     @Id
-    @GeneratedValue
-    private UUID uuid;
+    private UUID id;
     @Transient
     List<ListValueType> values;
 
@@ -58,12 +57,12 @@ public abstract class AbstractDemographic<ListValueType> {
         this.values=values;
     }
 
-    public UUID getUuid() {
-        return uuid;
+    public UUID getId() {
+        return id;
     }
 
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     protected String[] split(String input){

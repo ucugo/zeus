@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
-@Table(name = "placements")
+@Table(name = "placement")
 public class Placement {
 
     private static final long serialVersionUID = 7753325031172223735L;
@@ -19,8 +19,7 @@ public class Placement {
     public static int MIN_WEIGHT = 1;
 
     @Id
-    @GeneratedValue
-    private UUID uuid;
+    private UUID id;
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Campaign campaign;
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
@@ -51,12 +50,12 @@ public class Placement {
         MIN_WEIGHT = minWeight;
     }
 
-    public UUID getUuid() {
-        return uuid;
+    public UUID getId() {
+        return id;
     }
 
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public Campaign getCampaign() {

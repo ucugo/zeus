@@ -13,7 +13,6 @@ import java.util.UUID;
 public class AdvertCategory {
 
     @Id
-    @GeneratedValue
     private UUID id;
 
     public static List<AdvertCategory> getDefaultCategories() {

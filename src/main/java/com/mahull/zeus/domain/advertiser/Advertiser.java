@@ -8,14 +8,11 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "advertisers")
+@Table(name = "advertiser")
 public class Advertiser {
 
-    private static final long serialVersionUID = -3118494043665584808L;
-
     @Id
-    @GeneratedValue
-    private UUID uuid;
+    private UUID id;
 
     @ManyToOne(optional = false)
     private ZeusUser pollen8User;
@@ -35,16 +32,12 @@ public class Advertiser {
     @Column(name="include_cpa_code")
     private boolean includeCPACode = true;
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+    public UUID getId() {
+        return id;
     }
 
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public ZeusUser getPollen8User() {

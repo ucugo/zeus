@@ -16,14 +16,11 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "publisher_sites")
+@Table(name = "publisher_site")
 public class PublisherSite {
 
-    private static final long serialVersionUID = -3284344462003669340L;
-
     @Id
-    @GeneratedValue
-    private UUID uuid;
+    private UUID id;
 
     @ManyToOne
     @NotNull
@@ -61,4 +58,148 @@ public class PublisherSite {
     private ExternalPublisherSite externalPublisherSite = null;
     @Transient
     private String rejectedReason;
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
+
+    public String getSiteName() {
+        return siteName;
+    }
+
+    public void setSiteName(String siteName) {
+        this.siteName = siteName;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public boolean isShowsBanners() {
+        return showsBanners;
+    }
+
+    public void setShowsBanners(boolean showsBanners) {
+        this.showsBanners = showsBanners;
+    }
+
+    public boolean isShowsText() {
+        return showsText;
+    }
+
+    public void setShowsText(boolean showsText) {
+        this.showsText = showsText;
+    }
+
+    public boolean isShowsRichMedia() {
+        return showsRichMedia;
+    }
+
+    public void setShowsRichMedia(boolean showsRichMedia) {
+        this.showsRichMedia = showsRichMedia;
+    }
+
+    public boolean isPaused() {
+        return paused;
+    }
+
+    public void setPaused(boolean paused) {
+        this.paused = paused;
+    }
+
+    public boolean isSendNetCpc() {
+        return sendNetCpc;
+    }
+
+    public void setSendNetCpc(boolean sendNetCpc) {
+        this.sendNetCpc = sendNetCpc;
+    }
+
+    public ApprovalState getApprovalState() {
+        return approvalState;
+    }
+
+    public void setApprovalState(ApprovalState approvalState) {
+        this.approvalState = approvalState;
+    }
+
+    public Date getDeletedAt() {
+        return deletedAt;
+    }
+
+    public void setDeletedAt(Date deletedAt) {
+        this.deletedAt = deletedAt;
+    }
+
+    public BigDecimal getRevenueSharePercentage() {
+        return revenueSharePercentage;
+    }
+
+    public void setRevenueSharePercentage(BigDecimal revenueSharePercentage) {
+        this.revenueSharePercentage = revenueSharePercentage;
+    }
+
+    public Date getLastRequestReceived() {
+        return lastRequestReceived;
+    }
+
+    public void setLastRequestReceived(Date lastRequestReceived) {
+        this.lastRequestReceived = lastRequestReceived;
+    }
+
+    public List<Placement> getPlacements() {
+        return placements;
+    }
+
+    public void setPlacements(List<Placement> placements) {
+        this.placements = placements;
+    }
+
+    public List<ScheduledAdvertCategory> getScheduledAdvertCategories() {
+        return scheduledAdvertCategories;
+    }
+
+    public void setScheduledAdvertCategories(List<ScheduledAdvertCategory> scheduledAdvertCategories) {
+        this.scheduledAdvertCategories = scheduledAdvertCategories;
+    }
+
+    public ExternalPublisherSite getExternalPublisherSite() {
+        return externalPublisherSite;
+    }
+
+    public void setExternalPublisherSite(ExternalPublisherSite externalPublisherSite) {
+        this.externalPublisherSite = externalPublisherSite;
+    }
+
+    public String getRejectedReason() {
+        return rejectedReason;
+    }
+
+    public void setRejectedReason(String rejectedReason) {
+        this.rejectedReason = rejectedReason;
+    }
 }

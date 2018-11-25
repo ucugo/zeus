@@ -14,13 +14,11 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
+@Table(name = "tracking_target")
 public class TrackingTarget {
 
-    private static final long serialVersionUID = -5318503782646292099L;
-
     @Id
-    @GeneratedValue
-    private UUID uuid;
+    private UUID id;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @NotNull
@@ -46,4 +44,76 @@ public class TrackingTarget {
 
     @Transient
     private DisplayabilityResult displayability;
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public Advert getAdvert() {
+        return advert;
+    }
+
+    public void setAdvert(Advert advert) {
+        this.advert = advert;
+    }
+
+    public PublisherSite getPublisherSite() {
+        return publisherSite;
+    }
+
+    public void setPublisherSite(PublisherSite publisherSite) {
+        this.publisherSite = publisherSite;
+    }
+
+    public Placement getPlacement() {
+        return placement;
+    }
+
+    public void setPlacement(Placement placement) {
+        this.placement = placement;
+    }
+
+    public List<TrackingTargetStatistics> getStatistics() {
+        return statistics;
+    }
+
+    public void setStatistics(List<TrackingTargetStatistics> statistics) {
+        this.statistics = statistics;
+    }
+
+    public BigDecimal getPriority() {
+        return priority;
+    }
+
+    public void setPriority(BigDecimal priority) {
+        this.priority = priority;
+    }
+
+    public Double getPower() {
+        return power;
+    }
+
+    public void setPower(Double power) {
+        this.power = power;
+    }
+
+    public Double getCurrentWeight() {
+        return currentWeight;
+    }
+
+    public void setCurrentWeight(Double currentWeight) {
+        this.currentWeight = currentWeight;
+    }
+
+    public DisplayabilityResult getDisplayability() {
+        return displayability;
+    }
+
+    public void setDisplayability(DisplayabilityResult displayability) {
+        this.displayability = displayability;
+    }
 }

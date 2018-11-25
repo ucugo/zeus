@@ -9,14 +9,13 @@ import java.util.Set;
 import java.util.UUID;
 
 @Entity
-@Table(name="geo_ip_location_groups")
+@Table(name="geo_ip_location_group")
 public class GeoIPLocationGroup {
 
     public static final String PARENT_VALUE="*ALL*";
 
     @Id
-    @GeneratedValue
-    private UUID uuid;
+    private UUID id;
     @Enumerated(EnumType.STRING)
     private GeoIPLocationGroupType groupType;
     private String groupLevel1Name;
@@ -136,11 +135,11 @@ public class GeoIPLocationGroup {
         Network
     }
 
-    public UUID getUuid() {
-        return uuid;
+    public UUID getId() {
+        return id;
     }
 
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
+    public void setId(UUID id) {
+        this.id = id;
     }
 }

@@ -12,13 +12,10 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "adverts")
+@Table(name = "advert")
 public class Advert {
 
-    private static final long serialVersionUID = 822402511466963439L;
-
     @Id
-    @GeneratedValue
     private UUID id;
 
     @ManyToOne(optional = false)
@@ -59,6 +56,7 @@ public class Advert {
     private Date deletedAt;
 
     private ApprovalState approvalState=ApprovalState.Pending;
+
     @Transient
     private String disapprovedReason;
 
@@ -66,4 +64,124 @@ public class Advert {
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date forceClickThroughRateLastReset;
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public Campaign getCampaign() {
+        return campaign;
+    }
+
+    public void setCampaign(Campaign campaign) {
+        this.campaign = campaign;
+    }
+
+    public String getAdvertText() {
+        return advertText;
+    }
+
+    public void setAdvertText(String advertText) {
+        this.advertText = advertText;
+    }
+
+    public ImageInfo getBanner() {
+        return banner;
+    }
+
+    public void setBanner(ImageInfo banner) {
+        this.banner = banner;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getAdvertName() {
+        return advertName;
+    }
+
+    public void setAdvertName(String advertName) {
+        this.advertName = advertName;
+    }
+
+    public List<TrackingTarget> getTrackingTargets() {
+        return trackingTargets;
+    }
+
+    public void setTrackingTargets(List<TrackingTarget> trackingTargets) {
+        this.trackingTargets = trackingTargets;
+    }
+
+    public boolean isPaused() {
+        return paused;
+    }
+
+    public void setPaused(boolean paused) {
+        this.paused = paused;
+    }
+
+    public AdvertMode getMode() {
+        return mode;
+    }
+
+    public void setMode(AdvertMode mode) {
+        this.mode = mode;
+    }
+
+    public AdvertType getType() {
+        return type;
+    }
+
+    public void setType(AdvertType type) {
+        this.type = type;
+    }
+
+    public Date getDeletedAt() {
+        return deletedAt;
+    }
+
+    public void setDeletedAt(Date deletedAt) {
+        this.deletedAt = deletedAt;
+    }
+
+    public ApprovalState getApprovalState() {
+        return approvalState;
+    }
+
+    public void setApprovalState(ApprovalState approvalState) {
+        this.approvalState = approvalState;
+    }
+
+    public String getDisapprovedReason() {
+        return disapprovedReason;
+    }
+
+    public void setDisapprovedReason(String disapprovedReason) {
+        this.disapprovedReason = disapprovedReason;
+    }
+
+    public BigDecimal getForceClickThroughRate() {
+        return forceClickThroughRate;
+    }
+
+    public void setForceClickThroughRate(BigDecimal forceClickThroughRate) {
+        this.forceClickThroughRate = forceClickThroughRate;
+    }
+
+    public Date getForceClickThroughRateLastReset() {
+        return forceClickThroughRateLastReset;
+    }
+
+    public void setForceClickThroughRateLastReset(Date forceClickThroughRateLastReset) {
+        this.forceClickThroughRateLastReset = forceClickThroughRateLastReset;
+    }
 }

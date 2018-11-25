@@ -4,14 +4,13 @@ import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Table(name="handsets")
+@Table(name="handset")
 public class Handset {
 
     public static final String ALL = "all";
 
     @Id
-    @GeneratedValue
-    private UUID uuid;
+    private UUID id;
     private String sourceId;
     private String brandName;
     private String modelName;
@@ -138,12 +137,12 @@ public class Handset {
         this.tablet = tablet;
     }
 
-    public UUID getUuid() {
-        return uuid;
+    public UUID getId() {
+        return id;
     }
 
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
+    public void setId(UUID id) {
+        this.id = id;
     }
 
 }

@@ -4,13 +4,14 @@ import com.mahull.zeus.domain.tracking.TrackingTarget;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
+@Table(name = "tracking_target_statistics")
 public class TrackingTargetStatistics {
 
     @Id
-    @GeneratedValue
-    private Long id;
+    private UUID id;
     @ManyToOne(optional = false)
     private TrackingTarget trackingTarget;
     @Temporal(TemporalType.DATE)
@@ -21,11 +22,11 @@ public class TrackingTargetStatistics {
     @Embedded
     private ObjectStatistics values;
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

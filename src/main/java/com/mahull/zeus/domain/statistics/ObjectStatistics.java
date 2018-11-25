@@ -12,7 +12,7 @@ import java.util.Map;
 
 @Embeddable
 public class ObjectStatistics {
-    private static final long serialVersionUID = 8907688169701130000L;
+
     private long clicks = 0L;
     private long acquisitions = 0L;
     private long downloads = 0L;
@@ -39,4 +39,95 @@ public class ObjectStatistics {
     @Transient
     private final Map<String, Object> keyColumns = new LinkedHashMap<String, Object>();
 
+    public long getClicks() {
+        return clicks;
+    }
+
+    public void setClicks(long clicks) {
+        this.clicks = clicks;
+    }
+
+    public long getAcquisitions() {
+        return acquisitions;
+    }
+
+    public void setAcquisitions(long acquisitions) {
+        this.acquisitions = acquisitions;
+    }
+
+    public long getDownloads() {
+        return downloads;
+    }
+
+    public void setDownloads(long downloads) {
+        this.downloads = downloads;
+    }
+
+    public BigDecimal getImpressions() {
+        return impressions;
+    }
+
+    public void setImpressions(BigDecimal impressions) {
+        this.impressions = impressions;
+    }
+
+    public long getRealImpressions() {
+        return realImpressions;
+    }
+
+    public void setRealImpressions(long realImpressions) {
+        this.realImpressions = realImpressions;
+    }
+
+    public long getRequests() {
+        return requests;
+    }
+
+    public void setRequests(long requests) {
+        this.requests = requests;
+    }
+
+    public BigDecimal getSpend() {
+        return spend;
+    }
+
+    public void setSpend(BigDecimal spend) {
+        this.spend = spend;
+    }
+
+    public BigDecimal getCommissionInternal() {
+        return commissionInternal;
+    }
+
+    public void setCommissionInternal(BigDecimal commissionInternal) {
+        this.commissionInternal = commissionInternal;
+    }
+
+    public BigDecimal getCommissionExternal() {
+        return commissionExternal;
+    }
+
+    public void setCommissionExternal(BigDecimal commissionExternal) {
+        this.commissionExternal = commissionExternal;
+    }
+
+    public BigDecimal getPublisherRevenue() {
+        return publisherRevenue;
+    }
+
+    public void setPublisherRevenue(BigDecimal publisherRevenue) {
+        this.publisherRevenue = publisherRevenue;
+    }
+
+    public BigDecimal getExchangeRate() {
+        return exchangeRate;
+    }
+
+    public void setExchangeRate(BigDecimal exchangeRate) {
+        this.exchangeRate = exchangeRate;
+    }
+
+    public Map<String, Object> getKeyColumns() {
+        return keyColumns;
+    }
 }

@@ -19,7 +19,7 @@ import java.util.Set;
 import java.util.UUID;
 
 @Entity
-@Table(name="filter_campaigns")
+@Table(name="filter_campaign")
 public class CampaignFilter {
 
     private static final Logger logger = LoggerFactory.getLogger(CampaignFilter.class);
@@ -28,7 +28,6 @@ public class CampaignFilter {
     private boolean filterOutGeoLocations=false;
 
     @Id
-    @GeneratedValue
     private UUID id;
 
     @ManyToMany(fetch=FetchType.EAGER)
