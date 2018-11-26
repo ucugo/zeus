@@ -1,16 +1,16 @@
-spring:
-      jpa:
-         hibernate:
-                  ddl-auto: validate
-         generate-ddl: true
+#spring:
+#      jpa:
+#         hibernate:
+#                  ddl-auto: validate
+#         generate-ddl: false
 #         properties:
 #                  hibernate:
 #                          dialect: org.hibernate.dialect.HSQLDialect
-         show-sql: true
+#         show-sql: false
 
-      datasource:
-                platform: hsqldb
-                url: jdbc:hsqldb:mem:test;shutdown=true;sql.syntax_ora=true;hsqldb.tx=mvcc
+#      datasource:
+#                platform: hsqldb
+#                url: jdbc:hsqldb:mem:test;shutdown=true;sql.syntax_ora=true;hsqldb.tx=mvcc
 
 
 geoIp:

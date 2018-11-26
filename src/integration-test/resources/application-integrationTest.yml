@@ -1,0 +1,11 @@
+spring:
+      profiles:
+        active: integrationTest
+      jpa:
+         hibernate:
+                  ddl-auto: create
+         generate-ddl: true
+         show-sql: true
+      datasource:
+                platform: hsqldb
+                url: jdbc:hsqldb:mem:test;shutdown=true;sql.syntax_ora=true;hsqldb.tx=mvcc
