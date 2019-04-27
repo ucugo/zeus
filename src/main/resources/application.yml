@@ -14,9 +14,14 @@
 
 
 geoIp:
-     database:
-              file: ${zeus.config.home}\IPRangeDatabase.dat
+    database:
+          iprange:
+                file: ${zeus.config.home}\IPRangeDatabase.dat
+          city:
+             file: ${zeus.config.home}\GeoLite2-City.mmdb
+          isp:
+             file: ${zeus.config.home}\GeoIPISP.dat
 
 zeus:
     config:
-          home: C:\Users\Ugo\pollen8
+          home: C:\Users\Ugo\.pollen8
