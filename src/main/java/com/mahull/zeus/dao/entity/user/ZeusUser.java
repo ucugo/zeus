@@ -9,7 +9,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "zeus_users")
 public class ZeusUser {
-    private static final long serialVersionUID = -839799760599537172L;
+
     public static final String RequestScopeAttributeName="pollen8user";
 
     @Id

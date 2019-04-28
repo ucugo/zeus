@@ -4,8 +4,20 @@ spring:
       jpa:
          hibernate:
                   ddl-auto: create
-         generate-ddl: true
+         generate-ddl: false
          show-sql: true
+         properties:
+           hibernate:
+             dialect: org.hibernate.dialect.H2Dialect
+             synonym: true
+             default_schema:
+             jdbc:
+               batch_size: 100
       datasource:
                 platform: hsqldb
-                url: jdbc:hsqldb:mem:test;shutdown=true;sql.syntax_ora=true;hsqldb.tx=mvcc
+                url: jdbc:h2:mem:testdb
+                username: sa
+                driver-class-name: org.h2.Driver
+                hikari:
+                  minimum-idle: 2
+                  maximum-pool-size: 100

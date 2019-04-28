@@ -3,7 +3,7 @@ package com.mahull.zeus.service;
 import com.mahull.zeus.dao.entity.location.iprange.AbstractDatabase;
 import com.mahull.zeus.dao.entity.location.iprange.FileDatabase;
 import com.mahull.zeus.dao.entity.location.iprange.Key;
-import com.mahull.zeus.dao.repository.GeoIpLocationRepository;
+import com.mahull.zeus.dao.repository.location.GeoIpLocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
