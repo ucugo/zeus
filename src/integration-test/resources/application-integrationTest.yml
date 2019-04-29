@@ -3,7 +3,7 @@ spring:
         active: integrationTest
       jpa:
          hibernate:
-                  ddl-auto: create
+                  ddl-auto: validate
          generate-ddl: false
          show-sql: true
          properties:
