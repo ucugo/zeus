@@ -3,6 +3,7 @@ package com.mahull.zeus.dao.entity.placement;
 import com.mahull.zeus.dao.entity.advertiser.Campaign;
 import com.mahull.zeus.dao.entity.publisher.PublisherSite;
 import com.mahull.zeus.dao.entity.statistics.ObjectStatistics;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
@@ -19,6 +20,7 @@ public class Placement {
     public static int MIN_WEIGHT = 1;
 
     @Id
+    @Type(type = "uuid-char")
     private UUID id;
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Campaign campaign;

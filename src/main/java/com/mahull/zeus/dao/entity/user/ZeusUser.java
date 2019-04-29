@@ -1,6 +1,7 @@
 package com.mahull.zeus.dao.entity.user;
 
 import com.mahull.zeus.dao.entity.user.value.ZeusUserType;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -13,6 +14,7 @@ public class ZeusUser {
     public static final String RequestScopeAttributeName="pollen8user";
 
     @Id
+    @Type(type = "uuid-char")
     private UUID id;
 
     @NotNull

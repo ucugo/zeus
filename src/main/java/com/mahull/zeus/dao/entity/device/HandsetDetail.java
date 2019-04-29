@@ -1,5 +1,7 @@
 package com.mahull.zeus.dao.entity.device;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -10,6 +12,7 @@ import java.util.UUID;
 public class HandsetDetail {
 
     @Id
+    @Type(type = "uuid-char")
     private UUID id;
     private String sourceId;
     private String userAgent;

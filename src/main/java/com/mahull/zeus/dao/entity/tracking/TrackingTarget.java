@@ -5,6 +5,7 @@ import com.mahull.zeus.dao.entity.advertiser.Advert;
 import com.mahull.zeus.dao.entity.advertiser.value.DisplayabilityResult;
 import com.mahull.zeus.dao.entity.publisher.PublisherSite;
 import com.mahull.zeus.dao.entity.statistics.TrackingTargetStatistics;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -18,6 +19,7 @@ import java.util.UUID;
 public class TrackingTarget {
 
     @Id
+    @Type(type = "uuid-char")
     private UUID id;
 
     @ManyToOne(fetch = FetchType.EAGER)

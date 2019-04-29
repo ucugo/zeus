@@ -1,6 +1,7 @@
 package com.mahull.zeus.dao.entity.advertiser;
 
 import com.mahull.zeus.dao.entity.user.ZeusUser;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -12,6 +13,7 @@ import java.util.UUID;
 public class Advertiser {
 
     @Id
+    @Type(type = "uuid-char")
     private UUID id;
 
     @ManyToOne(optional = false)

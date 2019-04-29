@@ -1,5 +1,7 @@
 package com.mahull.zeus.dao.entity.publisher.external;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Lob;
@@ -13,6 +15,7 @@ public class ExternalPublisher {
     private static final long serialVersionUID = 635626502880486855L;
 
     @Id
+    @Type(type = "uuid-char")
     private UUID id;
 
     @NotNull

@@ -1,5 +1,7 @@
 package com.mahull.zeus.dao.entity.advertiser;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -12,6 +14,7 @@ import java.util.UUID;
 public class AdvertCategory {
 
     @Id
+    @Type(type = "uuid-char")
     private UUID id;
 
     public static List<AdvertCategory> getDefaultCategories() {

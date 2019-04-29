@@ -9,6 +9,7 @@ import com.mahull.zeus.dao.entity.location.GeoIPLocationGroup;
 import com.mahull.zeus.dao.entity.device.Handset;
 import com.mahull.zeus.dao.entity.device.HandsetGroup;
 import org.apache.commons.lang3.StringUtils;
+import org.hibernate.annotations.Type;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,6 +28,7 @@ public class CampaignFilter {
     private boolean filterOutGeoLocations=false;
 
     @Id
+    @Type(type = "uuid-char")
     private UUID id;
 
     @ManyToMany(fetch=FetchType.EAGER)
@@ -171,7 +173,7 @@ public class CampaignFilter {
 
 
     public Set<GeoIpLocation> getAllEnabledGeoIPLocationsExcludeParentsIfMoreSpecificIsAvailable(boolean quite){
-        Set<GeoIpLocation> out = new HashSet<GeoIpLocation>();
+        Set<GeoIpLocation> out = new HashSet<>();
         out.addAll(getGeoIPLocationChildren(1,quite));
         out.addAll(getGeoIPLocationChildren(2,quite));
         out.addAll(getGeoIPLocationChildren(3,quite));
@@ -179,7 +181,7 @@ public class CampaignFilter {
         return out;
     }
     private Set<GeoIpLocation> getGeoIPLocationChildren(int level,boolean quite){
-        Set<GeoIpLocation> out = new HashSet<GeoIpLocation>();
+        Set<GeoIpLocation> out = new HashSet<>();
         for(GeoIPLocationGroup parent : getGeoIPLocationGroups()){
             if(level == 4){
                 if(!parent.isParent() && isParentInGroupList(parent)){
@@ -238,7 +240,7 @@ public class CampaignFilter {
         return false;
     }
     public Set<Handset> getAllEnabledHandsetsExcludeParentsIfMoreSpecificIsAvailable(boolean quite){
-        Set<Handset> out = new HashSet<Handset>();
+        Set<Handset> out = new HashSet<>();
         out.addAll(getHandsetChildren(1,quite));
         out.addAll(getHandsetChildren(2,quite));
         out.addAll(getHandsetChildren(3,quite));
@@ -246,7 +248,7 @@ public class CampaignFilter {
         return out;
     }
     private Set<Handset> getHandsetChildren(int level, boolean quite){
-        Set<Handset> out = new HashSet<Handset>();
+        Set<Handset> out = new HashSet<>();
         for(HandsetGroup parent : getHandsetGroups()){
             if(level == 4){
                 if(!parent.isParent() && isParentInGroupList(parent)){

@@ -2,6 +2,7 @@ package com.mahull.zeus.dao.entity.publisher;
 
 import com.mahull.zeus.dao.entity.publisher.external.ExternalPublisher;
 import com.mahull.zeus.dao.entity.user.ZeusUser;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -15,6 +16,7 @@ import java.util.UUID;
 public class Publisher {
 
     @Id
+    @Type(type = "uuid-char")
     private UUID id;
     @ManyToOne(optional = false)
     private ZeusUser pollen8User;

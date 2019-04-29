@@ -1,6 +1,7 @@
 package com.mahull.zeus.dao.entity.statistics;
 
 import com.mahull.zeus.dao.entity.tracking.TrackingTarget;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -11,10 +12,11 @@ import java.util.UUID;
 public class TrackingTargetStatistics {
 
     @Id
+    @Type(type = "uuid-char")
     private UUID id;
     @ManyToOne(optional = false)
     private TrackingTarget trackingTarget;
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     @Column(name = "date_utc")
     private Date dateUTC;
     @Column(name = "hour_utc", columnDefinition = "TINYINT NOT NULL")

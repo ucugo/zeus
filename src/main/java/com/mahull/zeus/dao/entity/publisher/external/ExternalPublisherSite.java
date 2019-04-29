@@ -1,5 +1,7 @@
 package com.mahull.zeus.dao.entity.publisher.external;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
@@ -9,6 +11,7 @@ import java.util.UUID;
 public class ExternalPublisherSite {
 
     @Id
+    @Type(type = "uuid-char")
     private UUID id;
 
     @ManyToOne

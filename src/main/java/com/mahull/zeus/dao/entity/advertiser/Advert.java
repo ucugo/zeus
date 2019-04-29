@@ -5,6 +5,7 @@ import com.mahull.zeus.dao.entity.advertiser.value.AdvertType;
 import com.mahull.zeus.dao.entity.advertiser.value.ApprovalState;
 import com.mahull.zeus.dao.entity.advertiser.value.ImageInfo;
 import com.mahull.zeus.dao.entity.tracking.TrackingTarget;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -20,6 +21,7 @@ import java.util.UUID;
 public class Advert {
 
     @Id
+    @Type(type = "uuid-char")
     private UUID id;
 
     @ManyToOne(optional = false)
@@ -46,7 +48,7 @@ public class Advert {
     private String advertName;
 
     @OneToMany(mappedBy = "advert")
-    private List<TrackingTarget> trackingTargets = new ArrayList<TrackingTarget>();
+    private List<TrackingTarget> trackingTargets = new ArrayList<>();
 
     private boolean paused = false;
 

@@ -1,6 +1,7 @@
 package com.mahull.zeus.dao.entity.publisher;
 
 import com.mahull.zeus.dao.entity.advertiser.AdvertCategory;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
@@ -12,6 +13,7 @@ import java.util.UUID;
 public class ScheduledAdvertCategory {
 
     @Id
+    @Type(type = "uuid-char")
     private UUID id;
     @ManyToOne
     @JoinColumn(name="advert_category_id")

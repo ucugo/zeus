@@ -1,5 +1,7 @@
 package com.mahull.zeus.dao.entity.location;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.net.InetAddress;
 import java.util.TimeZone;
@@ -12,6 +14,7 @@ public class GeoIpLocation {
     public static final String ALL_CITIES = "**ALL**";
 
     @Id
+    @Type(type = "uuid-char")
     private UUID id;
     private String countryCode;
     private String countryName;

@@ -1,6 +1,7 @@
 package com.mahull.zeus.dao.entity.demographic;
 
 import org.apache.commons.lang3.StringUtils;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
@@ -16,6 +17,7 @@ public abstract class AbstractDemographic<ListValueType> {
     private String value;
 
     @Id
+    @Type(type = "uuid-char")
     private UUID id;
     @Transient
     List<ListValueType> values;
@@ -45,7 +47,7 @@ public abstract class AbstractDemographic<ListValueType> {
             this.value=null;
             return;
         }
-        List<ListValueType> values = new ArrayList<ListValueType>();
+        List<ListValueType> values = new ArrayList<>();
 
         for(String value : split(rawValue)){
             ListValueType lvt = convertStringToValuesType(value);

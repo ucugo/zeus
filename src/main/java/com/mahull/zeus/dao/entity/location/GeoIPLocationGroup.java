@@ -1,5 +1,7 @@
 package com.mahull.zeus.dao.entity.location;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
@@ -12,6 +14,7 @@ public class GeoIPLocationGroup {
     public static final String PARENT_VALUE="*ALL*";
 
     @Id
+    @Type(type = "uuid-char")
     private UUID id;
     @Enumerated(EnumType.STRING)
     private GeoIpLocationGroupType geoIpLocationGroupType;

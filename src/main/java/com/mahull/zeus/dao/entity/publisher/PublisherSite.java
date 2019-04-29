@@ -3,6 +3,7 @@ package com.mahull.zeus.dao.entity.publisher;
 import com.mahull.zeus.dao.entity.placement.Placement;
 import com.mahull.zeus.dao.entity.advertiser.value.ApprovalState;
 import com.mahull.zeus.dao.entity.publisher.external.ExternalPublisherSite;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
@@ -20,6 +21,7 @@ import java.util.UUID;
 public class PublisherSite {
 
     @Id
+    @Type(type = "uuid-char")
     private UUID id;
 
     @ManyToOne
@@ -48,12 +50,12 @@ public class PublisherSite {
     private Date lastRequestReceived;
     @OneToMany(mappedBy = "publisherSite")
     @OrderBy(value = "weight DESC")
-    private List<Placement> placements = new ArrayList<Placement>();
+    private List<Placement> placements = new ArrayList<>();
     @ManyToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
     @JoinTable(name = "publisher_sites_scheduled_advert_categories",
             joinColumns = @JoinColumn(name = "publisher_site_id",unique=true),
             inverseJoinColumns = @JoinColumn(name = "scheduled_advert_category_id",unique=true))
-    private List<ScheduledAdvertCategory> scheduledAdvertCategories = new ArrayList<ScheduledAdvertCategory>();
+    private List<ScheduledAdvertCategory> scheduledAdvertCategories = new ArrayList<>();
     @ManyToOne
     private ExternalPublisherSite externalPublisherSite = null;
     @Transient

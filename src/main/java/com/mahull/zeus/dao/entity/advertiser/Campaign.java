@@ -5,6 +5,7 @@ import com.mahull.zeus.dao.entity.placement.Placement;
 import com.mahull.zeus.dao.value.RunDays;
 import com.mahull.zeus.dao.value.TrackingParameterNames;
 import com.mahull.zeus.dao.entity.filter.CampaignFilter;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.Future;
@@ -22,6 +23,7 @@ import java.util.UUID;
 public class Campaign {
 
     @Id
+    @Type(type = "uuid-char")
     private UUID id;
     @NotNull
     private String campaignName;

@@ -1,5 +1,7 @@
 package com.mahull.zeus.dao.entity.device;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
@@ -13,6 +15,7 @@ public class HandsetGroup {
     public static final String PARENT_VALUE="*ALL*";
 
     @Id
+    @Type(type = "uuid-char")
     private UUID id;
     @Enumerated(EnumType.STRING)
     private HandsetGroupType groupType;
@@ -27,7 +30,7 @@ public class HandsetGroup {
     private Date loadedAt=new Date();
     @ManyToMany(fetch=FetchType.LAZY)
     @JoinTable(name = "handset_group_handsets", joinColumns = {@JoinColumn(name = "handset_group_id")}, inverseJoinColumns={@JoinColumn(name="handset_id")})
-    private Set<Handset> handsets=new HashSet<Handset>();
+    private Set<Handset> handsets=new HashSet<>();
 
     public HandsetGroupType getGeoIpLocationGroupType() {
         return groupType;
