@@ -30,7 +30,7 @@ public class DatabaseIPRangeLocationDatasource {
         ipRangeDatabase.doUpdate();
         final HashMap<Key, com.mahull.zeus.dao.entity.location.iprange.Value> database = ipRangeDatabase.getDatabase();
 
-        database.keySet().forEach(key -> System.out.println(key));
+        database.keySet().forEach(System.out::println);
 
         System.out.println();
     }
