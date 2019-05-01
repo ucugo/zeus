@@ -1,6 +1,8 @@
-package com.mahull.zeus.controller.advert;
+package com.mahull.zeus.service.controller.advert;
 
 import com.mahull.zeus.Application;
+import com.mahull.zeus.controller.advert.AdvertController;
+import com.mahull.zeus.service.IntegrationTestBase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -16,10 +18,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-@SpringBootTest
-@SpringJUnitConfig
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class AdvertControllerTest {
+class AdvertControllerTest extends IntegrationTestBase {
 
     @Autowired
     private WebApplicationContext wac;
